@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Surface colors - warm cream base inspired by Carol Chu's aesthetic */
+    --background: 30 25% 98%;          /* Soft warm cream - airy and inviting */
+    --foreground: 20 15% 25%;          /* Deep warm gray - excellent readability */
+
+    /* Primary - deep terracotta for bold headers and key actions */
+    --primary: 15 55% 45%;             /* Rich terracotta - warm, confident, distinctive */
+    --primary-foreground: 30 25% 98%;  /* Cream text on primary */
+
+    /* Secondary/muted elements - lighter terracotta tints */
+    --secondary: 20 30% 92%;           /* Warm blush for subtle backgrounds */
+    --secondary-foreground: 20 15% 25%; /* Maintains contrast */
+
+    --muted: 25 20% 94%;               /* Very light terracotta tint for cards/sections */
+    --muted-foreground: 20 12% 45%;    /* Medium warm gray for secondary text */
+
+    /* Accent color - deeper burnt terracotta for emphasis */
+    --accent: 12 65% 40%;              /* Deep burnt terracotta - for special highlights */
+    --accent-foreground: 30 25% 98%;   /* Cream on accent */
+
+    /* Case study accent - dusty purple for OrchidB (default) */
+    --case-accent: 293 16% 43%;        /* #7A5C7D - dusty purple light mode */
+    --case-accent-foreground: 30 25% 98%;
+
+    /* Slider border - light lavender for OrchidB (default) */
+    --slider-border: 248 52% 87%;      /* #D2CDEF - light lavender at 50% opacity */
+
+    /* Sustainable Trades theme - sage green */
+    --case-accent-sustainable: 87 15% 43%;    /* #6F7D5C - sage green light mode */
+    --case-secondary-sustainable: 100 11% 67%; /* #A8B5A2 - light sage secondary */
+
+    /* Borders and dividers - warm neutral with terracotta hint */
+    --border: 25 15% 88%;              /* Soft warm border */
+    --ring: 15 55% 45%;                /* Focus ring uses primary terracotta */
+  }
+
+  .dark {
+    /* Dark mode - warm terracotta palette adapted for dark backgrounds */
+    --background: 20 15% 8%;            /* Deep warm charcoal with terracotta hint */
+    --foreground: 30 20% 92%;           /* Warm cream for text - excellent readability */
+
+    /* Primary - lighter terracotta for visibility on dark */
+    --primary: 15 70% 60%;              /* Bright terracotta - pops on dark background */
+    --primary-foreground: 20 15% 8%;   /* Dark background for text on primary */
+
+    /* Secondary/muted elements */
+    --secondary: 20 20% 14%;            /* Warm dark gray for cards */
+    --secondary-foreground: 30 20% 92%; /* Maintains contrast */
+
+    --muted: 20 15% 12%;                /* Subtle warm dark for backgrounds */
+    --muted-foreground: 25 15% 65%;     /* Warm gray for secondary text */
+
+    /* Accent - vibrant burnt terracotta for dark mode */
+    --accent: 12 75% 55%;               /* Bright burnt terracotta - emphasis on dark */
+    --accent-foreground: 30 20% 92%;    /* Cream text on accent */
+
+    /* Case study accent - dusty purple for OrchidB dark mode (default) */
+    --case-accent: 293 12% 77%;         /* #C6B8CC - dusty purple dark mode */
+    --case-accent-foreground: 20 15% 8%;
+
+    /* Slider border - dusty purple for OrchidB dark mode (default) */
+    --slider-border: 293 16% 43%;       /* #7A5C7D - dusty purple at 50% opacity */
+
+    /* Sustainable Trades theme - sage green dark mode */
+    --case-accent-sustainable: 111 11% 59%;   /* #8FA18A - sage green dark mode */
+    --case-secondary-sustainable: 105 10% 39%; /* #5C6B57 - dark sage secondary */
+
+    /* Borders and dividers */
+    --border: 20 15% 22%;               /* Warm subtle border */
+    --ring: 15 70% 60%;                 /* Focus ring uses bright primary terracotta */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Smooth scrolling */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Focus visible styles for accessibility */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-ring;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  @apply sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground;
+}
