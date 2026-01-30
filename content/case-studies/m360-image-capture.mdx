@@ -1,0 +1,289 @@
+---
+title: "M360 Image Capture & IRIS Integration"
+slug: "m360-image-capture"
+domain: "Field Sales & Execution"
+company: "M360"
+role: "Product Designer"
+timeframe: "4 months"
+team: "2 Designers, 3 Developers, 1 PM"
+tags: ["Enterprise UX", "Mobile Design", "Feature Launch"]
+impact: "+20 NPS, Sunset 3rd-party app"
+excerpt: "Designed and launched in-app image capture and survey features to sunset a third-party application, reducing app-hopping and increasing user satisfaction by 20+ NPS points."
+confidential: true
+featured: true
+date: "2024-09-20"
+thumbnail: "/images/placeholder-feature.svg"
+---
+
+## Summary
+
+Field sales representatives used M360 for account management but had to switch to a third-party application (IRIS) to capture photos and complete surveys during store visits. This context-switching created friction, slowed workflows, and negatively impacted user satisfaction.
+
+### The Problem
+
+- **App-hopping friction** — users had to open two separate apps during store visits
+- **Duplicate data entry** — same information entered in multiple places
+- **Survey complexity** — IRIS interface was clunky and error-prone
+- **Business inefficiency** — maintaining and supporting a separate third-party tool
+- **User frustration** — consistently cited as a pain point in feedback
+
+### Users
+
+- Field sales representatives conducting daily store visits
+- Regional managers reviewing captured data
+- Analytics team consuming survey results
+
+### Goals
+
+1. Sunset the third-party IRIS application
+2. Bring image capture and surveys into M360
+3. Reduce friction and app-hopping
+4. Improve user satisfaction (NPS)
+5. Streamline workflows to save time
+
+### Constraints
+
+- Must maintain feature parity with existing IRIS functionality
+- Cannot disrupt existing workflows during transition
+- Limited engineering resources (1 iOS engineer, 1 backend engineer)
+- Tight timeline (4 months to launch)
+- Must work reliably in low-connectivity field environments
+
+## Role & Scope
+
+As Product Designer, I:
+
+- Led end-to-end design from research through launch
+- Conducted user research and usability testing
+- Created flows, wireframes, and high-fidelity prototypes
+- Collaborated with engineering on technical feasibility
+- Defined success metrics and tracked post-launch performance
+- Supported launch communications and training
+
+**Team:** Product Manager, iOS Engineer, Backend Engineer, QA
+
+## Outcomes
+
+### Quantitative Impact
+
+- **+20 NPS improvement** — measured 3 months post-launch
+- **Sunset 3rd-party app** — successfully decommissioned IRIS
+- **Reduced task time** — average store visit workflow decreased by estimated 10-15%
+- **High adoption** — 85% of users adopted new features within first month
+
+### Qualitative Impact
+
+> "This is a game-changer. I don't have to juggle two apps anymore. Everything I need is right here."
+>
+> — Field Sales Representative, pilot user
+
+- Users appreciated integrated workflow
+- Regional managers reported cleaner, more consistent data
+- Support tickets related to IRIS dropped to zero
+
+## Process
+
+### 1. Research & Discovery
+
+**Understanding Current Workflows**
+
+Shadowed 8 field sales representatives during store visits to understand:
+
+- How they used IRIS in context
+- Pain points and workarounds
+- Mental models and expectations
+- Technical constraints (connectivity, device specs)
+
+**Competitive Analysis**
+
+Reviewed similar features in competitive field sales apps to identify best practices for:
+
+- Image capture flows
+- Survey UX patterns
+- Offline functionality
+- Data validation
+
+**Stakeholder Interviews**
+
+Talked to regional managers and analytics team to understand:
+
+- What data they needed
+- How they used survey results
+- Quality and consistency requirements
+
+### 2. Information Architecture & Flows
+
+**Key Design Decisions**
+
+1. **Integrated, not separate** — embed image capture and surveys directly into existing visit flow rather than creating separate sections
+2. **Context-aware** — show relevant surveys based on visit type and account
+3. **Progressive disclosure** — only show required fields upfront, optional fields collapsed
+4. **Offline-first** — design for limited connectivity with smart syncing
+
+**User Flow**
+
+```
+Start Visit → Capture Photos → Complete Survey → Review & Submit → Sync Data
+```
+
+Simplified the flow from the previous two-app approach:
+
+- Removed app switching
+- Reduced duplicate data entry
+- Consolidated review step
+
+### 3. Visual Design & Prototyping
+
+**Camera Interface**
+
+- Designed native camera interface with clear guidance
+- Added photo preview and retake option
+- Implemented batch upload with progress indicator
+- Optimized image compression for bandwidth constraints
+
+**Survey Experience**
+
+- Used familiar input patterns (dropdowns, radio buttons, text fields)
+- Added inline validation to prevent errors
+- Designed conditional logic to show/hide questions based on answers
+- Created summary screen for review before submission
+
+**Accessibility Considerations**
+
+- Large touch targets for field use (minimum 44x44pt)
+- High contrast for outdoor visibility
+- Support for VoiceOver and screen readers
+- Clear focus states for keyboard navigation
+
+<Callout type="info">
+Screenshots and specific UI details have been redacted to protect confidential information.
+</Callout>
+
+### 4. Prototyping & Testing
+
+**Usability Testing**
+
+Conducted 3 rounds of testing with 12 users:
+
+- **Round 1:** Low-fidelity prototypes to validate flow
+- **Round 2:** High-fidelity prototypes to test interactions
+- **Round 3:** Beta build with real users in field
+
+**Key Findings from Testing**
+
+- Users wanted photo capture **before** survey (reversed initial flow)
+- Needed clearer indication of required vs. optional fields
+- Wanted ability to save draft and complete later
+- Required offline mode with clear sync status
+
+**Iterations**
+
+- Reordered flow to capture photos first
+- Added visual distinction for required fields
+- Implemented draft saving with auto-resume
+- Designed offline indicator and sync status badge
+
+### 5. Implementation & Launch
+
+**Engineering Collaboration**
+
+Worked closely with iOS engineer to:
+
+- Define component specifications in Storybook
+- Review implementation for design accuracy
+- Test edge cases (low connectivity, device storage limits)
+- Optimize performance for older devices
+
+**Phased Rollout**
+
+1. **Beta (week 1-2):** 20 pilot users, daily feedback sessions
+2. **Soft launch (week 3-4):** 100 users, weekly check-ins
+3. **Full launch (week 5+):** All users, support documentation
+
+**Training & Support**
+
+- Created in-app onboarding tutorial
+- Produced video walkthrough for training sessions
+- Wrote support documentation and FAQs
+- Hosted live Q&A sessions for regional managers
+
+## Design Decisions
+
+### Why In-App vs. Separate Feature
+
+Considered three approaches:
+
+1. **Separate app section** — pros: clear organization, cons: still feels separate
+2. **Modal overlay** — pros: lightweight, cons: disrupts flow
+3. **Integrated into visit flow** — **CHOSEN** — pros: seamless, natural workflow, cons: more complex implementation
+
+Chose integrated approach because it best reduced friction and matched user mental models.
+
+### Offline-First Architecture
+
+Field environments often have poor connectivity. Designed for offline-first:
+
+- All data captured locally first
+- Smart syncing when connection available
+- Clear indicators of sync status
+- Graceful handling of sync failures
+
+### Progressive Disclosure for Surveys
+
+Rather than showing all questions upfront (overwhelming), used progressive disclosure:
+
+- Start with required fields
+- Expand optional sections on demand
+- Show progress indicator
+- Allow save and resume
+
+This reduced perceived complexity while maintaining data collection requirements.
+
+## Collaboration
+
+### Product & Engineering Partnership
+
+- **Product Manager:** Aligned on business goals, success metrics, and launch timeline
+- **iOS Engineer:** Paired on technical feasibility, performance optimization, and implementation
+- **Backend Engineer:** Designed API contracts and data models together
+- **QA:** Collaborated on test plans and edge case coverage
+
+### Stakeholder Communication
+
+- **Sales Leadership:** Regular updates on progress, early demos for feedback
+- **Regional Managers:** Involved in beta testing and provided feedback
+- **Support Team:** Trained on new features before launch to handle user questions
+
+### Design Handoff
+
+- Created detailed specs in Figma with annotations
+- Built component documentation in Storybook
+- Conducted design reviews with engineering during implementation
+- Provided real-time feedback during QA testing
+
+## Learnings
+
+### What Worked Well
+
+- **Early user involvement** — shadowing users in field context provided invaluable insights
+- **Iterative testing** — three rounds of testing caught issues before they became costly
+- **Phased rollout** — beta and soft launch allowed us to catch issues early and build confidence
+- **Cross-functional collaboration** — tight partnership with engineering ensured feasible, high-quality implementation
+
+### What I'd Do Differently
+
+- **Earlier technical validation** — some design ideas were harder to implement than expected; earlier eng involvement would have helped
+- **More offline testing** — should have tested offline scenarios more extensively before launch
+- **Better success metrics** — should have defined more granular metrics upfront to measure specific improvements
+
+### Key Takeaway
+
+Consolidating fragmented workflows has outsized impact on user satisfaction. Users don't just want features—they want seamless experiences. By bringing image capture and surveys into M360, we didn't just add functionality; we removed friction and made users' jobs easier.
+
+The +20 NPS improvement wasn't about fancy features or visual polish—it was about understanding the problem deeply and designing a solution that fit naturally into existing workflows.
+
+---
+
+<Callout type="warning">
+This case study contains sanitized information to respect confidentiality agreements. Contact me for a detailed walkthrough with additional context and artifacts.
+</Callout>
