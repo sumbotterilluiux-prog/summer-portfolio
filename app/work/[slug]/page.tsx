@@ -179,7 +179,7 @@ export default async function CaseStudyPage({
           </div>
 
           {/* Content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-h2:mb-3 prose-h2:mt-16 prose-h2:text-3xl prose-h3:mt-4 prose-h3:text-xl prose-h3:text-foreground [&>h2+p]:mt-0 [&>h2+div]:mt-0 [&>h2+h3]:mt-3">
+          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-h2:mb-3 prose-h2:mt-10 prose-h2:text-3xl prose-h3:mt-4 prose-h3:text-xl prose-h3:text-foreground [&>h2+p]:mt-0 [&>h2+div]:mt-0 [&>h2+h3]:mt-3">
             <MDXRemote source={caseStudy.content} components={components} />
           </div>
 

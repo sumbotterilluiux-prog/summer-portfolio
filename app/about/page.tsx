@@ -59,7 +59,7 @@ export default function AboutPage() {
               I'm Summer, a product designer who believes the best design work happens when you truly understand the people you're designing for.
             </p>
             <p className="text-lg leading-relaxed text-muted-foreground">
-              Whether I'm conducting Jobs-to-be-Done research to uncover what users are actually trying to
+              Whether I'm conducting research to uncover what users are actually trying to
               accomplish or redesigning a platform based on deep user insights, I lead with curiosity and
               strategic thinking. I've learned that the most impactful design solutions come from understanding
               the "why" before jumping to the "what."
@@ -132,9 +132,9 @@ export default function AboutPage() {
           </p>
 
           {/* Bento Box Grid */}
-          <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-5">
+          <div className="mt-8 grid grid-cols-2 grid-rows-[1fr_1fr] gap-4 md:grid-cols-5 md:grid-rows-2" style={{ gridAutoRows: '1fr' }}>
             {/* Image 1 - Tall left (wider) */}
-            <div className="col-span-1 row-span-2 aspect-[3/4] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:aspect-auto md:h-full">
+            <div className="col-span-1 row-span-2 min-h-[400px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:min-h-[500px]">
               {/* Replace with your image */}
               {/* <Image
                 src="/images/outside-1.jpg"
@@ -146,7 +146,7 @@ export default function AboutPage() {
             </div>
 
             {/* Image 2 - Top middle */}
-            <div className="col-span-1 aspect-square overflow-hidden rounded-2xl bg-secondary/50 border border-border">
+            <div className="col-span-1 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:min-h-[240px]">
               {/* Replace with your image */}
               {/* <Image
                 src="/images/outside-2.jpg"
@@ -158,7 +158,7 @@ export default function AboutPage() {
             </div>
 
             {/* Image 3 - Top right (spans 2 on desktop) */}
-            <div className="col-span-1 aspect-square overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:aspect-video">
+            <div className="col-span-1 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:min-h-[240px]">
               {/* Replace with your image */}
               {/* <Image
                 src="/images/outside-3.jpg"
@@ -170,7 +170,7 @@ export default function AboutPage() {
             </div>
 
             {/* Image 4 - Bottom right (spans 3 on desktop) */}
-            <div className="col-span-2 aspect-video overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-3">
+            <div className="col-span-2 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-3 md:min-h-[240px]">
               {/* Replace with your image */}
               {/* <Image
                 src="/images/outside-4.jpg"
