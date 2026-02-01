@@ -34,7 +34,7 @@ export function ContactContent() {
         <p className="mt-4 text-lg text-muted-foreground">
           I'd love to hear from you. Whether you're interested in discussing
           design opportunities, want a detailed portfolio walkthrough, or just
-          want to connect—feel free to reach out.
+          want to connect, feel free to reach out!
         </p>
 
         {/* Contact Options */}
@@ -195,57 +195,6 @@ export function ContactContent() {
           </p>
         </div>
 
-        {/* Simple Contact Form Alternative */}
-        <div className="mt-12">
-          <h2 className="text-2xl font-bold">Or Send a Message</h2>
-          <form
-            action={`mailto:${email}`}
-            method="get"
-            encType="text/plain"
-            className="mt-6 space-y-6"
-          >
-            <div>
-              <label
-                htmlFor="subject"
-                className="block text-sm font-medium text-foreground"
-              >
-                Subject
-              </label>
-              <input
-                type="text"
-                name="subject"
-                id="subject"
-                className="mt-2 block w-full rounded-lg border border-border bg-background px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                placeholder="What would you like to discuss?"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="body"
-                className="block text-sm font-medium text-foreground"
-              >
-                Message
-              </label>
-              <textarea
-                name="body"
-                id="body"
-                rows={6}
-                className="mt-2 block w-full rounded-lg border border-border bg-background px-4 py-2 text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
-                placeholder="Tell me a bit about what you're looking for..."
-              />
-            </div>
-            <button
-              type="submit"
-              className="inline-flex rounded-lg bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              Send Message
-            </button>
-          </form>
-          <p className="mt-4 text-xs text-muted-foreground">
-            This form will open your default email client. Alternatively, you
-            can email me directly at the address above.
-          </p>
-        </div>
       </div>
 
       {/* Toast Notification */}

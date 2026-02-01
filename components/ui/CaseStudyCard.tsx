@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { TagChip } from "./TagChip";
 import { motion } from "framer-motion";
 
 export interface CaseStudyCardProps {
@@ -67,16 +66,9 @@ export function CaseStudyCard({
               {title}
             </h3>
 
-            <div className="mt-auto flex flex-wrap gap-1.5">
-              {tags.slice(0, 2).map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full bg-secondary px-2 py-0.5 text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <p className="mt-auto text-xs text-muted-foreground line-clamp-1">
+              <span className="font-medium">Impact:</span> {impact}
+            </p>
           </div>
         </Link>
       </motion.div>
@@ -124,13 +116,11 @@ export function CaseStudyCard({
             )}
           </div>
 
-          <div className="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <TagChip key={tag}>{tag}</TagChip>
-            ))}
-          </div>
+          <p className="text-sm text-muted-foreground">
+            {tags.map((tag) => tag.toUpperCase()).join(", ")}
+          </p>
 
-          <div className="mt-auto flex items-center gap-4 border-t border-border pt-4 text-sm">
+          <div className="flex items-center gap-4 border-t border-border pt-4 text-sm">
             <div>
               <span className="text-muted-foreground">Impact:</span>{" "}
               <span className="font-medium">{impact}</span>
@@ -145,6 +135,9 @@ export function CaseStudyCard({
               <span className="font-medium">Timeline:</span> {timeframe}
             </div>
           </div>
+
+          {/* Spacer to push remaining space to bottom */}
+          <div className="mt-auto" />
         </div>
       </Link>
     </motion.div>

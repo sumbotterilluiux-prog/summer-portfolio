@@ -15,6 +15,10 @@ const themeColors: Record<string, { light: string; dark: string }> = {
     light: "hsl(87 15% 43%)",  // #6F7D5C - sage green
     dark: "hsl(111 11% 59%)", // #8FA18A - sage green dark
   },
+  "najaa": {
+    light: "hsl(45 80% 45%)",  // golden yellow
+    dark: "hsl(45 70% 55%)",   // golden yellow dark
+  },
 };
 
 export function ReadingProgress({ slug }: ReadingProgressProps) {

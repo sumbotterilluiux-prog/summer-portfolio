@@ -18,6 +18,7 @@ export interface CaseStudyFrontmatter {
   excerpt: string;
   confidential: boolean;
   featured: boolean;
+  hidden?: boolean;
   date: string;
   thumbnail?: string;
   thumbnailDark?: string;
@@ -46,7 +47,31 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
       };
     });
 
-  // Sort by date, newest first
+  // Sort by date, newest first, and filter out hidden studies
+  return caseStudies
+    .filter((cs) => !cs.hidden)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
+// Get all case studies including hidden ones (for direct access)
+async function getAllCaseStudiesIncludingHidden(): Promise<CaseStudy[]> {
+  const files = fs.readdirSync(contentDirectory);
+
+  const caseStudies = files
+    .filter((file) => file.endsWith(".mdx"))
+    .map((file) => {
+      const filePath = path.join(contentDirectory, file);
+      const fileContent = fs.readFileSync(filePath, "utf8");
+      const { data, content } = matter(fileContent);
+      const { text: readingTimeText } = readingTime(content);
+
+      return {
+        ...(data as CaseStudyFrontmatter),
+        content,
+        readingTime: readingTimeText,
+      };
+    });
+
   return caseStudies.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
@@ -55,7 +80,7 @@ export async function getCaseStudies(): Promise<CaseStudy[]> {
 export async function getCaseStudyBySlug(
   slug: string
 ): Promise<CaseStudy | null> {
-  const caseStudies = await getCaseStudies();
+  const caseStudies = await getAllCaseStudiesIncludingHidden();
   return caseStudies.find((cs) => cs.slug === slug) || null;
 }
 
