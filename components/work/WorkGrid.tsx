@@ -4,54 +4,28 @@ import { useState } from "react";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { CaseStudy } from "@/lib/mdx";
 
-interface WorkFilterProps {
+interface WorkGridProps {
   caseStudies: CaseStudy[];
-  allTags: string[];
 }
 
 type GridView = "2-col" | "3-col";
 
-export function WorkFilter({ caseStudies, allTags }: WorkFilterProps) {
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+export function WorkGrid({ caseStudies }: WorkGridProps) {
   const [gridView, setGridView] = useState<GridView>("2-col");
-
-  const filteredCaseStudies = selectedTag
-    ? caseStudies.filter((cs) => cs.tags.includes(selectedTag))
-    : caseStudies;
 
   return (
     <div>
-      {/* Filter and View Controls */}
-      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        {/* Tag Filters */}
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedTag(null)}
-            className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-              selectedTag === null
-                ? "border-primary bg-primary text-primary-foreground"
-                : "border-border bg-background hover:bg-secondary"
-            }`}
-          >
-            All
-          </button>
-          {allTags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setSelectedTag(tag)}
-              className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                selectedTag === tag
-                  ? "border-primary bg-primary text-primary-foreground"
-                  : "border-border bg-background hover:bg-secondary"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+      {/* Header with title and grid toggle */}
+      <div className="mb-12">
+        <h1 className="text-4xl font-bold tracking-tight">Work</h1>
+        <div className="mt-4 flex items-start justify-between gap-4">
+          <p className="text-lg text-muted-foreground">
+            Case studies and projects showcasing product design for enterprise
+            applications, design systems, and data-heavy workflows.
+          </p>
 
-        {/* Grid View Toggle */}
-        <div className="flex items-center gap-1 rounded-lg border border-border bg-background p-1">
+          {/* Grid View Toggle */}
+          <div className="flex shrink-0 items-center gap-1 rounded-lg border border-border bg-background p-1">
           <button
             onClick={() => setGridView("2-col")}
             className={`flex items-center justify-center rounded-md p-2 transition-colors ${
@@ -95,6 +69,7 @@ export function WorkFilter({ caseStudies, allTags }: WorkFilterProps) {
               <rect x="17" y="3" width="5" height="18" rx="1" />
             </svg>
           </button>
+          </div>
         </div>
       </div>
 
@@ -106,7 +81,7 @@ export function WorkFilter({ caseStudies, allTags }: WorkFilterProps) {
             : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
         }`}
       >
-        {filteredCaseStudies.map((caseStudy) => (
+        {caseStudies.map((caseStudy) => (
           <CaseStudyCard
             key={caseStudy.slug}
             title={caseStudy.title}
@@ -123,12 +98,6 @@ export function WorkFilter({ caseStudies, allTags }: WorkFilterProps) {
           />
         ))}
       </div>
-
-      {filteredCaseStudies.length === 0 && (
-        <div className="py-12 text-center text-muted-foreground">
-          No case studies found for this filter.
-        </div>
-      )}
     </div>
   );
 }

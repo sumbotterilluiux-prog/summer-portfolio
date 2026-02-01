@@ -15,7 +15,7 @@ export function ProblemSection({ children, src, srcDark, alt = "Problem illustra
       {/* Problem text content */}
       <div className="prose prose-lg dark:prose-invert max-w-none">{children}</div>
       {/* Illustration below the text */}
-      <div className="mt-6 max-w-2xl">
+      <div className="mt-6 mx-auto max-w-2xl">
         <div className="w-full overflow-hidden rounded-[25px] border border-border bg-secondary/50 flex items-center justify-center">
           {hasImage ? (
             <>

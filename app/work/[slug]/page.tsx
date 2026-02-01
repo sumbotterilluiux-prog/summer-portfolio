@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getCaseStudies, getCaseStudyBySlug } from "@/lib/mdx";
-import { TagChip } from "@/components/ui/TagChip";
 import { Callout } from "@/components/ui/Callout";
 import { Quote } from "@/components/ui/Quote";
 import { ImageFrame } from "@/components/ui/ImageFrame";
@@ -20,6 +19,7 @@ import { ProductFlowDiagram } from "@/components/ui/ProductFlowDiagram";
 import { ScrollableImage } from "@/components/ui/ScrollableImage";
 import { PrototypeDemo } from "@/components/ui/PrototypeDemo";
 import { OutcomeWithFeedback } from "@/components/ui/OutcomeWithFeedback";
+import { MobileGifShowcase } from "@/components/ui/MobileGifShowcase";
 
 const components = {
   Callout,
@@ -37,6 +37,7 @@ const components = {
   ScrollableImage,
   PrototypeDemo,
   OutcomeWithFeedback,
+  MobileGifShowcase,
 };
 
 export async function generateStaticParams() {
@@ -119,13 +120,7 @@ export default async function CaseStudyPage({
               {caseStudy.excerpt}
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-2">
-              {caseStudy.tags.map((tag) => (
-                <TagChip key={tag}>{tag}</TagChip>
-              ))}
-            </div>
-
-            {/* Hero Image - Below tags, above metadata for non-confidential case studies */}
+            {/* Hero Image - Below excerpt, above metadata for non-confidential case studies */}
             {!caseStudy.confidential && (caseStudy.slug === "orchid-b" || caseStudy.slug === "sustainable-trades" || caseStudy.slug === "najaa") && (
               <div className="mt-10">
                 <CaseStudyHero slug={caseStudy.slug} />
