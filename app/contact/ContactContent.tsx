@@ -185,7 +185,7 @@ export function ContactContent() {
         </div>
 
         {/* Additional Info */}
-        <div className="mt-12 rounded-lg border border-border bg-muted/50 p-6">
+        <div className="mt-12 rounded-lg border border-border bg-muted/50 p-6 hidden">
           <h2 className="text-lg font-semibold">About Confidential Work</h2>
           <p className="mt-2 text-sm text-muted-foreground">
             Many of my case studies contain sanitized information to respect
