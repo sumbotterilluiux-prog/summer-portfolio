@@ -116,10 +116,6 @@ export function CaseStudyCard({
             )}
           </div>
 
-          <p className="text-sm text-muted-foreground">
-            {tags.map((tag) => tag.toUpperCase()).join(", ")}
-          </p>
-
           <div className="flex items-center gap-4 border-t border-border pt-4 text-sm">
             <div>
               <span className="text-muted-foreground">Impact:</span>{" "}
