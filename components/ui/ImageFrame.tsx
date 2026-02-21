@@ -12,6 +12,9 @@ export function ImageFrame({
   height = 800,
   centered = false,
   minimal = false,
+  maxHeight,
+  maxWidth,
+  className,
 }: {
   src: string;
   srcDark?: string;
@@ -21,6 +24,9 @@ export function ImageFrame({
   height?: number;
   centered?: boolean;
   minimal?: boolean;
+  maxHeight?: number;
+  maxWidth?: number;
+  className?: string;
 }) {
   const [isDark, setIsDark] = useState(false);
 
@@ -42,13 +48,17 @@ export function ImageFrame({
   const imageSrc = srcDark && isDark ? srcDark : src;
 
   return (
-    <figure className={`my-8 ${centered ? "flex flex-col items-center" : ""}`}>
+    <figure className={`my-8 ${centered ? "flex flex-col items-center" : ""} ${className || ""}`}>
       <div
         className={`overflow-hidden ${
           minimal
             ? "rounded-lg"
             : "rounded-lg border border-border bg-secondary"
         } ${centered ? "w-full max-w-5xl" : ""}`}
+        style={{
+          ...(maxHeight ? { maxHeight: `${maxHeight}px` } : {}),
+          ...(maxWidth ? { maxWidth: `${maxWidth}px`, marginInline: "auto" } : {}),
+        }}
       >
         <Image
           src={imageSrc}

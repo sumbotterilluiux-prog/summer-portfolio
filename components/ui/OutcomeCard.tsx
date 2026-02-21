@@ -16,6 +16,10 @@ const themeColors: Record<string, { light: string; dark: string }> = {
     light: "hsl(45 80% 45%)",  // golden yellow
     dark: "hsl(45 70% 55%)",
   },
+  "fop-user-research": {
+    light: "hsl(209 54% 42%)",  // #326EA5 - blue
+    dark: "hsl(210 63% 63%)",   // #64A0DC - blue dark
+  },
 };
 
 export function OutcomeCard({
