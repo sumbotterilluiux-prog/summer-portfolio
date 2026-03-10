@@ -34,6 +34,11 @@
     --case-accent-sustainable: 87 15% 43%;    /* #6F7D5C - sage green light mode */
     --case-secondary-sustainable: 100 11% 67%; /* #A8B5A2 - light sage secondary */
 
+    /* M360 User Research theme - blue */
+    --case-accent-m360: 209 54% 42%;          /* #326EA5 - blue primary light mode */
+    --case-secondary-m360: 213 56% 64%;       /* #6F9ED6 - blue secondary light mode */
+    --case-highlight-m360: 194 79% 93%;       /* #DEF4FB - blue highlight light mode */
+
     /* Borders and dividers - warm neutral with terracotta hint */
     --border: 25 15% 88%;              /* Soft warm border */
     --ring: 15 55% 45%;                /* Focus ring uses primary terracotta */
@@ -69,6 +74,11 @@
     /* Sustainable Trades theme - sage green dark mode */
     --case-accent-sustainable: 111 11% 59%;   /* #8FA18A - sage green dark mode */
     --case-secondary-sustainable: 105 10% 39%; /* #5C6B57 - dark sage secondary */
+
+    /* M360 User Research theme - blue dark mode */
+    --case-accent-m360: 210 63% 63%;          /* #64A0DC - blue primary dark mode */
+    --case-secondary-m360: 210 57% 73%;       /* #91B9E1 - blue secondary dark mode */
+    --case-highlight-m360: 207 69% 87%;       /* #C8E1F5 - blue highlight dark mode */
 
     /* Borders and dividers */
     --border: 20 15% 22%;               /* Warm subtle border */

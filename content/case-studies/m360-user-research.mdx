@@ -1,210 +1,177 @@
 ---
-title: "M360 Sales Capability User Research"
-slug: "m360-user-research"
-domain: "B2B Sales & CRM"
-company: "M360"
+title: "Reimaging Enterprise Field Tools"
+slug: "fop-user-research"
+domain: "B2B Field Operations Platform"
+company: "Global Beverage Distribution"
 role: "Lead Product Designer & Researcher"
-timeframe: "3 months"
-team: "1 Product Designer, 1 PM, 2 Stakeholders"
-tags: ["User Research", "Enterprise UX", "B2B"]
-impact: "Identified 80% underutilization of features"
-excerpt: "Conducted comprehensive user research across all organizational levels to uncover pain points and usage patterns in M360, a B2B CRM platform serving field sales representatives through RTM Directors."
+timeframe: "9 months"
+team: "Product Design & Cross-functional Stakeholders"
+impact: "Redesigning enterprise workflows to turn complexity into clarity for field teams operating at scale."
+excerpt: "Translated fragmented workflows into a unified execution model, aligning product architecture with real user behavior and future scalability."
 confidential: true
-featured: false
-hidden: true
+featured: true
 date: "2024-11-15"
-thumbnail: "/images/placeholder-research.svg"
+thumbnail: "/images/case-studies/m360_research/user_research_thumbnail.png"
 ---
 
-## Summary
+## Challenge
 
-M360 is a B2B CRM platform used by field sales representatives, territory managers, and RTM Directors. Despite significant investment in features, user adoption was lower than expected and satisfaction scores were declining.
+Field teams struggled with a fragmented platform, slow updates, complex navigation, and unclear task guidance. This was
+reflected in negative NPS scores and consistent user feedback. As a result, adoption remained low and nearly 90% of platform 
+features were underutilized.
 
-### The Problem
+## My Role
 
-- Low feature adoption across the platform
-- User complaints about complexity and friction
-- Lack of clarity on which features provided real value
-- Gap between what was built and what users actually needed
+As the lead designer on this initiative, I also led the research effort to better understand how the platform supported real field workflows.
+My responsibilites included:
 
-### Users
+- Defining and leading a multi-level research initiative across field teams and regional leadership
+- Conducting 30+ in-depth user interviews and contextual inquiries to understand behaviors, motivations, and workflow challenges
+- Faciltating a Jobs to be Done workshops (JTBD) with 100+ participants to identify gaps between task importance and satisfaction
+- Synthesizing qualitative insights and quantitative usage data to uncover adoption patterns and workflow inefficiencies
+- Analyzing behavioral analytics to uncover adoption patterns and workflow inefficiencies
+- Running prototype validation sessions with 50+ users to test and refine proposed workflow improvements
 
-- Field sales representatives (daily users)
-- Territory managers (weekly users)
-- RTM Directors (strategic users)
+### Research Overview
 
-### Constraints
+<ImageFrame
+  src="/images/case-studies/m360_research/approach_light.png"
+  srcDark="/images/case-studies/m360_research/approach_dark.png"
+  alt="Research approach overview"
+  width={1600}
+  height={810}
+  maxWidth={660}
+  centered
+  minimal
+  className="!mt-3 !mb-4"
+/>
 
-- Large, distributed user base across multiple time zones
-- Limited access to users due to operational demands
-- Need to maintain business continuity during research
-- Confidential sales data and workflows
+I began by analyzing NPS feedback and internal user input through affinity mapping, which highlighted consistent issues around 
+**usability**, **navigation complexity**, and **delayed updates**. I then mapped the application architecture to understand how the 
+structure of the platform contributed to daily workflows. 
 
-## Role & Scope
+To validate these patterns, I conducted in-depth interviews with field reps and team leads to uncover motivations, behaviors, and pain points 
+in their daily routines. Click-path analysis confirmed where users spent time, where they abandoned tasks, and which features were underutilized. 
 
-As Lead Product Designer & Researcher, I:
+JTBD workshops were then done across additional field teams and regional managers to quantify critical workflow gaps across all levels. Identifying critical 
+tasks and prioritizing opportunities for redesign. Early prototype testing of proposed solutions allowed us to ensure improvements aligned with real user behavior 
+before moving into design execution. 
 
-- Designed and led the research initiative across all user levels
-- Conducted 32 user interviews and contextual inquiries
-- Facilitated workshop sessions with stakeholders
-- Analyzed quantitative usage data from analytics
-- Synthesized findings into actionable insights and recommendations
+## Problem Landscape
 
-**Team:** Product Manager, Engineering Lead, 2 Stakeholder Representatives
+Although the platform offered broad feature coverage, NPS remained negative, with significantly more detractors than promoters. Feedback pointed to navigation complexity, 
+delayed updates, and the need to switch between multiple systems to complete core tasks. For field teams operating in time-constrained environments, these inefficiencies 
+compounded quickly.
 
-## Outcomes
+Behavioral data reinforced the issue. While the platform contained a wide range of features, **85-90% of them saw little to no engagement**. Activity was concentrated 
+around compliance-driven workflows: account lists, objectives, visits, and surveys. Even then, interactions were often superficial. Reps would tap into features to register
+activity, then immediately transition to a separate operating system that offered more reliable features.
 
-### Key Findings
+This created a structural tension: the platform was contractually required for compliance, but operationally secondary for execution.
 
-- **80% of features were underutilized** — majority of users relied on 5-7 core functions
-- **Major gap between importance and satisfaction** — features users needed most had lowest satisfaction scores
-- **Workflow fragmentation** — users spent significant time switching between M360 and other tools
-- **Onboarding gaps** — new users struggled to discover and understand advanced features
+<ImageFrame
+  src="/images/case-studies/m360_research/venndiagram.png"
+  alt="Venn diagram showing structural tension between compliance requirements and operational execution"
+  width={1600}
+  height={868}
+  centered
+  minimal
+  className="!mt-4 !mb-6"
+/>
 
-### Impact on Product Strategy
+Trust futher deteriorated due to delayed updates and reporting lag. Field data surfaced days after submission, causing managers and support roles to rely on manual interpretation 
+and secondary communication. Reps frequently deferred to team leads or upper management for direction rather than relying on the tool itself. 
 
-Research findings directly informed a 6-month product roadmap focused on:
+As one sales representative noted:
 
-1. Simplifying core workflows
-2. Sunsetting or consolidating underutilized features
-3. Improving high-value, low-satisfaction features
-4. Reducing dependency on external tools
+<Quote>I mainly use it as a launching point to get into accounts.</Quote>
 
-## Process
+And from a leadership perspective:
 
-### 1. Research Planning
+<Quote>My sales team is not so hot on it. They see it as an extra step between them and selling the account.</Quote>
 
-Started by defining research objectives with stakeholders:
+To compensate, teams created workarounds, manually tracking objectives, visits, and surveys outside the system. Supporting materials were often rebuilt locally to avoid 
+friction. Instead of enabling execution, the platform had become an administrative layer. 
 
-- Understand current usage patterns and pain points
-- Identify gaps between user needs and current features
-- Evaluate feature importance vs. satisfaction
-- Uncover opportunities for workflow improvement
+The core issue was not a lack of features. It was a **misalignment** between product structure and real-world workflow. 
 
-Created a research plan that balanced depth with operational constraints.
+## Research Strategy
 
-### 2. Data Collection
+I approached the investigation using a layered, mixed-methods strategy to identify both behavioral and systemic pain pints, triangulating 
+insights across qualitative and quantitative sources.
 
-**Quantitative Analysis**
+### Affinity Mapping
 
-- Analyzed 6 months of usage analytics
-- Mapped feature adoption rates across user segments
-- Identified drop-off points and error patterns
+I synthesized NPS feedback and internal input, revealing that users experienced low adoption, delayed updates for complaince-tracked items, long load times, and limited task 
+guidance. Patterns suggested that platform complexity and performance issues were pervasive and across field workflows.
 
-**Qualitative Research**
+### Site Mapping
 
-- Conducted 32 one-on-one interviews (45-60 minutes each)
-- Observed 12 contextual inquiry sessions in field environments
-- Ran 3 workshop sessions with power users
+This helped clarify the structural problem. The application architecture was cluttered and required excessive clicks to access critical workflows, including task 
+management, survey completion, and compliance tracking, amplifying user frustration.
 
-**Survey**
+### User interviews
 
-- Distributed importance vs. satisfaction survey (125 responses)
-- Measured feature usage frequency and perceived value
+Interviews with 30 participants across field and team leadership roles deepened our understanding of user needs. Key pain points centered on minimizing extraneous features, 
+centralizing task and objective tracking, and streamlining guidance to create a more seamless experience.
 
-### 3. Analysis & Synthesis
+### Click Path Analysis
 
-Used affinity mapping to identify patterns across:
+Validated behavioral patterns. Users primarily navigated between core account views, while roughly 90% of other features went largely unused. This 
+confirmed that low-value areas created friction and adoption gaps.
 
-- Pain points and frustrations
-- Workarounds and hacks
-- Unmet needs and feature requests
-- Mental models and expectations
+### JTBD Workshops
 
-Created user journey maps for each role to visualize:
+With 100+ participants quantified gaps between satisfaction and importance, highlighting workflow deficiencies in planning, goal preparation, execution, 
+and post-activity review.
 
-- High-friction moments
-- Points of confusion
-- Tool-switching patterns
-- Opportunities for improvement
+### Prototype Testing
 
-<Callout type="info">
-Sample data and metrics have been generalized to protect confidential information. Specific workflows and proprietary features have been redacted.
-</Callout>
+Utilizing Figma and Lysnna helped provide early validation. Redesigned dashboards and task-tracking screens scored highly in satisfaction, with most users able to quickly 
+identify incomplete objectives and missing items, and most noting significant improvement over the previous workflow.
 
-### 4. Key Insights
+<Quote>This redesign encapsulates the changes needed to optimize task management. Including performance metrics and account insights is a welcomed addition that could help teams 
+immediately by providing actionable information for each account. - Field User</Quote>
 
-**1. Feature Overload**
+By layering quantitative data, qualitative synthesis, and early prototype validation, I was able to identify precise workflow failures, confirm user behavior patterns, and prioritize 
+interventions that would meaningfully improve adoption, efficiency, and data reliability.
 
-Users felt overwhelmed by the number of features. Most relied on a small subset of core functions and avoided exploring additional capabilities.
+## Insights
 
-> "I know there's a lot this system can do, but I don't have time to figure it all out. I just stick with what works."
->
-> — Territory Manager, 3 years experience
-
-**2. Misaligned Priorities**
-
-Features that scored highest in importance (account management, contact tracking, activity logging) had the lowest satisfaction scores due to usability issues.
-
-**3. Integration Gaps**
-
-Users frequently switched to external tools for tasks that M360 theoretically supported, indicating trust and usability issues with existing features.
-
-**4. Role-Based Needs**
-
-Different roles had very different needs:
-
-- **Field reps** needed speed and mobile-first design
-- **Territory managers** needed visibility and reporting
-- **Directors** needed strategic insights and trend analysis
-
-## Design Decisions
-
-### Prioritization Framework
-
-Created a 2x2 matrix plotting importance vs. satisfaction to prioritize improvements:
-
-- **High importance, low satisfaction** → immediate focus
-- **High importance, high satisfaction** → maintain quality
-- **Low importance, high satisfaction** → monitor
-- **Low importance, low satisfaction** → consider sunsetting
-
-### Recommendations Delivered
-
-1. **Simplify core workflows** — reduce clicks and streamline most-used features
-2. **Sunset underutilized features** — remove or consolidate features with less than 10% adoption
-3. **Improve high-value features** — redesign account management, contact tracking, and activity logging
-4. **Consolidate external tools** — bring frequently-used external workflows in-house
-5. **Enhance onboarding** — guided tours and contextual help for new users
-
-## Collaboration
-
-### Cross-Functional Alignment
-
-- **Product:** Worked closely to translate findings into roadmap priorities
-- **Engineering:** Shared technical constraints that shaped recommendations
-- **Sales Leadership:** Validated findings and supported user access
-- **Analytics:** Partnered to combine quantitative and qualitative insights
-
-### Stakeholder Communication
-
-Delivered findings through:
-
-- Executive summary deck for leadership
-- Detailed research report for product team
-- Workshop sessions to socialize insights
-- Journey maps and personas for ongoing reference
+<OutcomeCardGrid columns={3}>
+  <OutcomeCard
+    metric="01"
+    title="Quantified Workflow Gaps"
+    description="The largest gaps between importance and satisfaction were in route planning, task execution, and post-activity review, clearly highlighting where the platform fails to support 
+    field workflows and providing actionable priorities for improvement."
+  />
+  <OutcomeCard
+    metric="02"
+    title="Core Feature Focus & Adoption"
+    description="Users focus almost entirely on a few essential areas while most features remain unused, leading to workarounds and reliance on other tools. Adoption is strongly tied to perceived 
+    value and alignment with critical workflows."
+  />
+  <OutcomeCard
+    metric="03"
+    title="Trust & Data Reliability Gaps"
+    description="Delays in updates and reporting create distrust, forcing users to rely on supervisors or manual tracking. This systemic issue reduces efficiency and accountability across teams."
+  />
+</OutcomeCardGrid>
 
 ## Learnings
 
 ### What Worked Well
 
-- **Mixed methods approach** — combining analytics, interviews, and surveys provided comprehensive understanding
-- **Role-based segmentation** — interviewing across all levels revealed important differences in needs
-- **Quantitative validation** — usage data confirmed qualitative findings and added credibility
+The multi-method research approach effectively uncovered critical workflow gaps, adoption patterns, and trust issues. By combining qualitative insights, click-path analysis, and JTBD validation, 
+I synthesized a clear picture of user needs and priorities, providing a strong foundation for actionable recommendations. Early prototype testing further validated design directions and aligned improvements 
+with real user behavior, reinforcing the value of iterative, evidence-driven research.
 
 ### What I'd Do Differently
 
-- **Earlier stakeholder involvement** — more upfront alignment on research objectives would have smoothed adoption of findings
-- **Continuous research** — establish ongoing research cadence rather than one-time deep dive
-- **Faster iteration** — move from insights to prototyping more quickly to test solutions
+I would focus on building ongoing trust with users by maintaining continuous engagement throughout the project. Regular check-ins and feedback sessions would ensure that research not only addresses business 
+priorities but also genuinely supports the field teams, creating stronger alignment and richer insights over time.
 
 ### Key Takeaway
 
-Research doesn't just validate assumptions—it challenges them. The gap between what we thought users needed and what they actually needed was significant. This project reinforced the importance of talking to users early and often, and using data to drive decisions rather than intuition alone.
-
----
-
-<Callout type="warning">
-This case study contains generalized information to respect confidentiality agreements. Contact me for a detailed walkthrough with additional context.
-</Callout>
+Research doesn't just validate assumptions; it challenges them. The gap between what we thought users needed and what they needed was significant. This project reinforced the importance of talking to 
+users early and often, and using data to drive decisions rather than intuition alone.

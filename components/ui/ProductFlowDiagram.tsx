@@ -27,6 +27,16 @@ const themeColors: Record<string, { light: { primary: string; secondary: string 
       secondary: "#7A5C7D", // darker purple
     },
   },
+  "fop-user-research": {
+    light: {
+      primary: "#326EA5",   // blue
+      secondary: "#6F9ED6", // light blue
+    },
+    dark: {
+      primary: "#64A0DC",   // blue dark
+      secondary: "#91B9E1", // light blue dark
+    },
+  },
 };
 
 const steps = [
