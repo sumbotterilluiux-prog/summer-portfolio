@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-// import Image from "next/image"; // Uncomment when adding images
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
@@ -132,53 +132,49 @@ export default function AboutPage() {
           </p>
 
           {/* Bento Box Grid */}
-          <div className="mt-8 grid grid-cols-2 grid-rows-[1fr_1fr] gap-4 md:grid-cols-5 md:grid-rows-2" style={{ gridAutoRows: '1fr' }}>
-            {/* Image 1 - Tall left (wider) */}
-            <div className="col-span-1 row-span-2 min-h-[400px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:min-h-[500px]">
-              {/* Replace with your image */}
-              {/* <Image
-                src="/images/outside-1.jpg"
-                alt="Outside of work"
+          <div className="mt-8 grid grid-cols-2 grid-rows-[150px_150px_150px] gap-4 md:grid-cols-5 md:grid-rows-[150px_150px_150px]">
+            {/* Image 1 - Tall left (giraffe) - spans all 3 rows */}
+            <div className="col-span-1 row-span-3 overflow-hidden rounded-2xl border border-border md:col-span-2">
+              <Image
+                src="/images/about/giraffe.png"
+                alt="Feeding a giraffe"
                 width={400}
-                height={500}
+                height={600}
                 className="h-full w-full object-cover"
-              /> */}
+              />
             </div>
 
-            {/* Image 2 - Top middle */}
-            <div className="col-span-1 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:min-h-[240px]">
-              {/* Replace with your image */}
-              {/* <Image
-                src="/images/outside-2.jpg"
-                alt="Outside of work"
+            {/* Image 2 - Top middle (disney) */}
+            <div className="col-span-1 overflow-hidden rounded-2xl border border-border">
+              <Image
+                src="/images/about/disney.png"
+                alt="At Disney"
                 width={300}
                 height={300}
                 className="h-full w-full object-cover"
-              /> */}
+              />
             </div>
 
-            {/* Image 3 - Top right (spans 2 on desktop) */}
-            <div className="col-span-1 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-2 md:min-h-[240px]">
-              {/* Replace with your image */}
-              {/* <Image
-                src="/images/outside-3.jpg"
-                alt="Outside of work"
+            {/* Image 3 - Top right (hawaii) */}
+            <div className="col-span-1 overflow-hidden rounded-2xl border border-border md:col-span-2">
+              <Image
+                src="/images/about/hawaii.png"
+                alt="In Hawaii"
                 width={600}
                 height={300}
                 className="h-full w-full object-cover"
-              /> */}
+              />
             </div>
 
-            {/* Image 4 - Bottom right (spans 3 on desktop) */}
-            <div className="col-span-2 min-h-[180px] overflow-hidden rounded-2xl bg-secondary/50 border border-border md:col-span-3 md:min-h-[240px]">
-              {/* Replace with your image */}
-              {/* <Image
-                src="/images/outside-4.jpg"
-                alt="Outside of work"
+            {/* Image 4 - Bottom right (cali) - spans 2 rows */}
+            <div className="col-span-2 row-span-2 overflow-hidden rounded-2xl border border-border md:col-span-3">
+              <Image
+                src="/images/about/cali.png"
+                alt="In California"
                 width={900}
-                height={400}
+                height={600}
                 className="h-full w-full object-cover"
-              /> */}
+              />
             </div>
           </div>
         </section>
