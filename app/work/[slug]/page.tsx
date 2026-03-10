@@ -127,7 +127,7 @@ export default async function CaseStudyPage({
               </div>
             )}
 
-            <div className="mt-10 grid grid-cols-2 gap-8 border-t border-border pt-8 md:grid-cols-4">
+            <div className="mt-10 grid grid-cols-3 gap-8 border-t border-border pt-8">
               <div>
                 <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
                   Company
@@ -150,14 +150,6 @@ export default async function CaseStudyPage({
                 </div>
                 <div className="mt-1 text-base font-medium text-foreground">
                   {caseStudy.timeframe}
-                </div>
-              </div>
-              <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Team
-                </div>
-                <div className="mt-1 text-base font-medium text-foreground">
-                  {caseStudy.team || caseStudy.readingTime}
                 </div>
               </div>
             </div>

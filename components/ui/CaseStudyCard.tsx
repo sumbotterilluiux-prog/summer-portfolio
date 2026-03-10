@@ -49,6 +49,8 @@ export function CaseStudyCard({
                 src={thumbnail}
                 alt={title}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={90}
                 className={`object-cover transition-transform group-hover:scale-105 ${thumbnailDark ? "dark:hidden" : ""}`}
               />
               {thumbnailDark && (
@@ -56,6 +58,8 @@ export function CaseStudyCard({
                   src={thumbnailDark}
                   alt={title}
                   fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  quality={90}
                   className="object-cover transition-transform group-hover:scale-105 hidden dark:block"
                 />
               )}
@@ -93,6 +97,8 @@ export function CaseStudyCard({
               src={thumbnail}
               alt={title}
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              quality={90}
               className={`object-cover transition-transform group-hover:scale-105 ${thumbnailDark ? "dark:hidden" : ""}`}
             />
             {thumbnailDark && (
@@ -100,6 +106,8 @@ export function CaseStudyCard({
                 src={thumbnailDark}
                 alt={title}
                 fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                quality={90}
                 className="object-cover transition-transform group-hover:scale-105 hidden dark:block"
               />
             )}
@@ -115,10 +123,6 @@ export function CaseStudyCard({
               <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{excerpt}</p>
             )}
           </div>
-
-          <p className="text-sm text-muted-foreground">
-            {tags.map((tag) => tag.toUpperCase()).join(", ")}
-          </p>
 
           <div className="flex items-center gap-4 border-t border-border pt-4 text-sm">
             <div>

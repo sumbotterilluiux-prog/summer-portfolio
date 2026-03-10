@@ -9,7 +9,7 @@ const navigation = [
   { name: "Work", href: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
-  { name: "Resume", href: "https://drive.google.com/file/d/1Auv4HYWcV6lQPoVEjLglsgc4bzpWvAdr/view?usp=sharing", external: true },
+  { name: "Resume", href: "https://drive.google.com/file/d/1x6ljsSvaO6D_wudHMymDz1M7eNLvkLlS/view?usp=sharing", external: true },
 ];
 
 export function Header() {
