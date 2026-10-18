@@ -19,18 +19,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     {
-      url: "https://summerbotterill.com/work",
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: "https://summerbotterill.com/leadership",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: "https://summerbotterill.com/about",
       lastModified: new Date(),
       changeFrequency: "monthly",
