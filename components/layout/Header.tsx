@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
@@ -33,8 +34,9 @@ export function Header() {
       >
         <div className="flex shrink-0 lg:flex-1">
           <Link href="/" className="group -m-1.5 flex items-center gap-2.5 p-1.5" aria-label="Summer Botterill, home">
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground font-mono text-xs font-medium text-background transition-[transform,border-radius] duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-[8deg] group-hover:scale-105 group-hover:rounded-full motion-reduce:transition-none">
-              SB
+            <span className="relative block h-8 w-8 overflow-hidden rounded-lg transition-[transform,border-radius] duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-[8deg] group-hover:scale-105 group-hover:rounded-full motion-reduce:transition-none">
+              <Image src="/images/logo_light.png" alt="" width={32} height={32} priority className="dark:hidden" />
+              <Image src="/images/logo_dark.png" alt="" width={32} height={32} priority className="hidden dark:block" />
             </span>
           </Link>
         </div>
