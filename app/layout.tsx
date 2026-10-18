@@ -116,7 +116,7 @@ export default function RootLayout({
           </a>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main id="main-content" className="flex-1">
+            <main id="main-content" className="flex-1 pt-[var(--header-height)]">
               {children}
             </main>
             <Footer />
