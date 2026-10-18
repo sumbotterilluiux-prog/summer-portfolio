@@ -15,7 +15,6 @@ export interface CaseStudyCardProps {
   excerpt?: string;
   thumbnail?: string;
   thumbnailDark?: string;
-  compact?: boolean;
 }
 
 export function CaseStudyCard({
@@ -28,57 +27,7 @@ export function CaseStudyCard({
   excerpt,
   thumbnail,
   thumbnailDark,
-  compact = false,
 }: CaseStudyCardProps) {
-  if (compact) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="h-full"
-      >
-        <Link
-          href={`/work/${slug}`}
-          className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-background transition-all hover:border-primary hover:shadow-lg"
-        >
-          {thumbnail && (
-            <div className="relative aspect-video w-full overflow-hidden">
-              <Image
-                src={thumbnail}
-                alt={title}
-                fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                quality={90}
-                className={`object-cover transition-transform group-hover:scale-105 ${thumbnailDark ? "dark:hidden" : ""}`}
-              />
-              {thumbnailDark && (
-                <Image
-                  src={thumbnailDark}
-                  alt={title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  quality={90}
-                  className="object-cover transition-transform group-hover:scale-105 hidden dark:block"
-                />
-              )}
-            </div>
-          )}
-          <div className="flex flex-1 flex-col gap-2 p-4">
-            <h3 className="text-base font-semibold tracking-tight group-hover:text-primary line-clamp-1">
-              {title}
-            </h3>
-
-            <p className="mt-auto text-xs text-muted-foreground line-clamp-1">
-              <span className="font-medium">Impact:</span> {impact}
-            </p>
-          </div>
-        </Link>
-      </motion.div>
-    );
-  }
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -97,7 +46,7 @@ export function CaseStudyCard({
               src={thumbnail}
               alt={title}
               fill
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              sizes="(max-width: 1024px) 100vw, 50vw"
               quality={90}
               className={`object-cover transition-transform group-hover:scale-105 ${thumbnailDark ? "dark:hidden" : ""}`}
             />
@@ -106,7 +55,7 @@ export function CaseStudyCard({
                 src={thumbnailDark}
                 alt={title}
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 quality={90}
                 className="object-cover transition-transform group-hover:scale-105 hidden dark:block"
               />
