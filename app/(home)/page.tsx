@@ -1,53 +1,38 @@
 import Link from "next/link";
 import { CaseStudyCard } from "@/components/ui/CaseStudyCard";
 import { getFeaturedCaseStudies } from "@/lib/mdx";
+import { DeviceSketch } from "@/components/home/DeviceSketch";
 
 export default async function Home() {
   const featuredCaseStudies = await getFeaturedCaseStudies();
 
   return (
-    <div className="flex flex-col">
-      {/* Hero Section - Inspired by Carol Chu's minimal, warm aesthetic */}
-      <section className="border-b border-border/40 px-6 py-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
-          <div className="space-y-6">
-            {/* Greeting with personality */}
-            <h1 className="flex items-center gap-3 text-5xl font-bold tracking-tight text-primary lg:text-6xl">
-              Hey there, I'm Summer
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="inline-block text-accent"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2" />
-                <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.41 1.41" />
-                <path d="m17.66 17.66 1.41 1.41" />
-                <path d="M2 12h2" />
-                <path d="M20 12h2" />
-                <path d="m6.34 17.66-1.41 1.41" />
-                <path d="m19.07 4.93-1.41 1.41" />
-              </svg>
-            </h1>
+    // Pulled up under the floating header so the blueprint grid runs behind it, through every section
+    <div className="relative isolate -mt-[var(--header-height)] flex flex-col pt-[var(--header-height)]">
+      <div aria-hidden="true" className="blueprint-grid pointer-events-none absolute inset-0 -z-10" />
 
-            {/* Value proposition with warm, human tone */}
-            <p className="text-xl leading-relaxed text-foreground lg:text-2xl">
-              Product designer bridging research & strategy to drive user adoption and business growth.
-            </p>
+      {/* Hero */}
+      <section className="border-b border-border/60 px-6 lg:px-8">
+        <div className="mx-auto max-w-6xl pb-20 pt-16 sm:px-4 sm:pt-20 lg:pb-24">
+          <h1 className="text-center">
+            <span className="block text-2xl font-normal tracking-[-0.02em] sm:text-3xl lg:text-4xl">
+              Hi, I&apos;m Summer, a
+            </span>
+            <span className="mt-1 block font-serif text-6xl italic leading-[1] tracking-[-0.02em] sm:text-7xl lg:text-8xl">
+              Product Designer<span className="text-primary">.</span>
+            </span>
+          </h1>
 
-            {/* Detailed description */}
-            <p className="text-lg leading-relaxed text-muted-foreground">
-              For the past three years, I've worked on end-to-end experiences across mobile and web platforms, shaping tools that empower users and align with business KPIs. From leading research and redesign efforts to improving usability and engagement. I focus on solving real user problems through data, insights, and thoughtful designs.
-            </p>
+          <DeviceSketch className="mx-auto mt-10 max-w-2xl lg:mt-12 lg:max-w-[44rem]" />
 
-          </div>
+          <p className="mx-auto mt-14 max-w-3xl text-balance text-center text-xl font-medium leading-relaxed tracking-[-0.015em] sm:text-2xl lg:mt-16 lg:text-[1.75rem] lg:leading-[1.45]">
+            I design digital experiences{" "}
+            <mark className="hero-highlight">around the people who use them.</mark>{" "}
+            By understanding their needs, I create clearer workflows and more
+            intuitive apps. By bringing usability and visual design together to
+            make everyday tasks easier and deliver{" "}
+            <mark className="hero-highlight">measurable business results.</mark>
+          </p>
         </div>
       </section>
 

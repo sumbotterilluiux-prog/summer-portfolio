@@ -13,7 +13,7 @@ export default async function WorkPage() {
 
   return (
     <div className="px-6 py-16 lg:px-8">
-      <div className="mx-auto max-w-content-xl">
+      <div className="mx-auto max-w-6xl">
         <WorkGrid caseStudies={caseStudies} />
       </div>
     </div>

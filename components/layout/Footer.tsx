@@ -47,7 +47,7 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="border-t border-border/40 bg-muted/40">
-      <div className="mx-auto max-w-content-xl px-6 py-12 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 py-12 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <h3 className="text-sm font-semibold">Summer Botterill</h3>

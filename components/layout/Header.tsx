@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
 import { motion, useReducedMotion } from "framer-motion";
@@ -18,18 +17,16 @@ export function Header() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
   const reduceMotion = useReducedMotion();
-  const [hovered, setHovered] = useState<string | null>(null);
 
   const activeName = navigation.find(
     (item) => !item.external && (pathname === item.href || pathname?.startsWith(item.href + "/"))
   )?.name;
-  // The pill sits under the hovered link, and falls back to the current page
-  const pillTarget = hovered ?? activeName;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70">
+    // Floats over the page; <main> is padded by --header-height so content starts below it
+    <header className="fixed inset-x-0 top-0 z-40 px-3 pt-3 sm:px-6 lg:px-8">
       <nav
-        className="mx-auto flex max-w-content-xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8"
+        className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-2 rounded-2xl border border-border/70 bg-background/70 px-2.5 sm:gap-3 shadow-[0_8px_30px_-12px_hsl(var(--foreground)/0.18)] backdrop-blur-md sm:px-4"
         aria-label="Global"
       >
         <div className="flex shrink-0 lg:flex-1">
@@ -42,18 +39,15 @@ export function Header() {
         </div>
         <div
           className="relative flex gap-0.5 rounded-full border border-border bg-secondary p-1"
-          onMouseLeave={() => setHovered(null)}
-          onBlur={(e) => {
-            if (!e.currentTarget.contains(e.relatedTarget as Node)) setHovered(null);
-          }}
         >
           {navigation.map((item) => {
             const isActive = item.name === activeName;
-            const isLit = item.name === pillTarget;
-            const className = `relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[13px] font-medium transition-colors sm:px-4 sm:text-sm ${
-              isLit ? "text-foreground" : "text-muted-foreground"
+
+            const className = `relative whitespace-nowrap rounded-full px-2 py-1.5 text-[13px] font-medium transition-colors sm:px-4 sm:text-sm ${
+              isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
             }`;
-            const pill = isLit && (
+            // The pill marks the current page and slides over when the page changes
+            const pill = isActive && (
               <motion.span
                 layoutId="nav-pill"
                 className="absolute inset-0 -z-10 rounded-full bg-background shadow-[0_0_0_1px_hsl(var(--border))]"
@@ -64,10 +58,6 @@ export function Header() {
                 }
               />
             );
-            const handlers = {
-              onMouseEnter: () => setHovered(item.name),
-              onFocus: () => setHovered(item.name),
-            };
 
             if (item.external) {
               return (
@@ -77,7 +67,6 @@ export function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`group isolate ${className}`}
-                  {...handlers}
                 >
                   {pill}
                   {item.name}{" "}
@@ -98,7 +87,6 @@ export function Header() {
                 href={item.href}
                 className={`isolate ${className}`}
                 aria-current={isActive ? "page" : undefined}
-                {...handlers}
               >
                 {pill}
                 {item.name}
