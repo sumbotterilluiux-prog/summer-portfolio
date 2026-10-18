@@ -91,7 +91,7 @@ export default async function CaseStudyPage({
         <div className="mx-auto max-w-content-lg">
           {/* Back Link */}
           <Link
-            href="/work"
+            href="/#work"
             className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
             <span

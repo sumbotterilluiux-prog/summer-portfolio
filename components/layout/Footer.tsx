@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const footerLinks = {
   navigation: [
-    { name: "Work", href: "/work" },
+    { name: "Work", href: "/#work" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],

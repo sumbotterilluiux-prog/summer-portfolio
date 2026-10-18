@@ -7,7 +7,7 @@ import { useTheme } from "./ThemeProvider";
 import { motion, useReducedMotion } from "framer-motion";
 
 const navigation = [
-  { name: "Work", href: "/work" },
+  { name: "Work", href: "/#work", match: "/work" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
   { name: "Resume", href: "/resume.pdf", external: true },
@@ -19,7 +19,11 @@ export function Header() {
   const reduceMotion = useReducedMotion();
 
   const activeName = navigation.find(
-    (item) => !item.external && (pathname === item.href || pathname?.startsWith(item.href + "/"))
+    (item) => {
+      if (item.external) return false;
+      const path = item.match ?? item.href;
+      return pathname === path || pathname?.startsWith(path + "/");
+    }
   )?.name;
 
   return (
