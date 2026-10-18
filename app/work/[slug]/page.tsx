@@ -92,67 +92,54 @@ export default async function CaseStudyPage({
           {/* Back Link */}
           <Link
             href="/work"
-            className="mb-8 inline-flex items-center text-sm font-medium text-muted-foreground transition-colors hover:text-accent"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="mr-2 h-4 w-4"
+            <span
+              aria-hidden="true"
+              className="inline-block transition-transform duration-300 group-hover:-translate-x-1 motion-reduce:transition-none"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
-              />
-            </svg>
-            Back to Work
+              ←
+            </span>
+            <span className="link-draw">All work</span>
           </Link>
 
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="mt-6 text-5xl font-bold tracking-tight text-primary lg:text-6xl">
+          <header className="mb-12">
+            <p className="mt-12 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+              {caseStudy.domain}
+            </p>
+            <h1 className="mt-4 max-w-4xl text-balance text-4xl font-medium leading-[1.05] tracking-[-0.035em] sm:text-5xl lg:text-6xl">
               {caseStudy.title}
             </h1>
-            <p className="mt-6 text-xl leading-relaxed text-foreground lg:text-2xl">
+            <p className="mt-6 max-w-3xl text-lg leading-relaxed text-muted-foreground lg:text-xl">
               {caseStudy.excerpt}
             </p>
 
             {/* Hero Image - Below excerpt, above metadata for non-confidential case studies */}
             {!caseStudy.confidential && (caseStudy.slug === "orchid-b" || caseStudy.slug === "sustainable-trades" || caseStudy.slug === "najaa") && (
-              <div className="mt-10">
+              <div className="mt-12">
                 <CaseStudyHero slug={caseStudy.slug} />
               </div>
             )}
 
-            <div className="mt-10 grid grid-cols-3 gap-8 border-t border-border pt-8">
+            <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-6 border-y border-border py-6 md:grid-cols-4">
               <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Company
-                </div>
-                <div className="mt-1 text-base font-medium text-foreground">
-                  {caseStudy.company || caseStudy.domain}
-                </div>
+                <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Company</dt>
+                <dd className="mt-1.5 text-[15px]">{caseStudy.company || caseStudy.domain}</dd>
               </div>
               <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Role
-                </div>
-                <div className="mt-1 text-base font-medium text-foreground">
-                  {caseStudy.role}
-                </div>
+                <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Role</dt>
+                <dd className="mt-1.5 text-[15px]">{caseStudy.role}</dd>
               </div>
               <div>
-                <div className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Timeline
-                </div>
-                <div className="mt-1 text-base font-medium text-foreground">
-                  {caseStudy.timeframe}
-                </div>
+                <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Timeline</dt>
+                <dd className="mt-1.5 text-[15px]">{caseStudy.timeframe}</dd>
               </div>
-            </div>
+              <div>
+                <dt className="font-mono text-xs uppercase tracking-wider text-muted-foreground">Reading time</dt>
+                <dd className="mt-1.5 text-[15px]">{caseStudy.readingTime}</dd>
+              </div>
+            </dl>
 
             {caseStudy.confidential && (
               <div className="mt-10">
@@ -168,26 +155,34 @@ export default async function CaseStudyPage({
                 </Callout>
               </div>
             )}
-          </div>
+          </header>
 
-          {/* Content */}
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-20 prose-h2:mb-3 prose-h2:mt-10 prose-h2:text-3xl prose-h3:mt-4 prose-h3:text-xl prose-h3:text-foreground [&>h2+p]:mt-0 [&>h2+div]:mt-0 [&>h2+h3]:mt-3">
+          {/* Content: running text keeps a readable measure, visuals use the full width */}
+          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-h2:mb-4 prose-h2:mt-20 prose-h2:text-3xl prose-h3:mt-8 prose-h3:text-xl prose-li:marker:text-muted-foreground [&>:is(p,ul,ol,h2,h3,h4,blockquote)]:max-w-3xl [&>h2+p]:mt-0 [&>h2+div]:mt-0 [&>h2+h3]:mt-3">
             <MDXRemote source={caseStudy.content} components={components} />
           </div>
 
           {/* Footer CTA - only show for confidential case studies */}
           {caseStudy.confidential && (
-            <div className="mt-20 rounded-lg border border-border bg-secondary/50 p-10 text-center">
-              <h2 className="text-3xl font-bold text-primary">Want to learn more?</h2>
-              <p className="mt-3 text-lg text-muted-foreground">
+            <div className="mt-24 rounded-3xl border border-border bg-secondary p-8 sm:p-12">
+              <p className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+                Want to learn more?
+              </p>
+              <h2 className="mt-3 max-w-xl text-balance text-3xl font-medium tracking-[-0.025em]">
+                I can walk you through the details that aren&apos;t public.
+              </h2>
+              <p className="mt-3 max-w-xl text-lg text-muted-foreground">
                 I'd be happy to walk through this project in more detail and discuss
                 how my approach could benefit your team.
               </p>
               <Link
                 href="/contact"
-                className="mt-8 inline-flex rounded-lg bg-accent px-8 py-4 text-base font-medium text-accent-foreground transition-colors hover:bg-accent/90"
+                className="group mt-8 inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-[15px] font-medium text-background transition-shadow hover:shadow-[0_10px_24px_-12px_hsl(var(--foreground)/0.6)]"
               >
-                Get in Touch
+                Get in touch
+                <span aria-hidden="true" className="inline-block transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none">
+                  →
+                </span>
               </Link>
             </div>
           )}

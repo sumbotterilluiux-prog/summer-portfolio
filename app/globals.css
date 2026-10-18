@@ -4,24 +4,21 @@
 
 @layer base {
   :root {
-    /* Surface colors - warm cream base inspired by Carol Chu's aesthetic */
-    --background: 30 25% 98%;          /* Soft warm cream - airy and inviting */
-    --foreground: 20 15% 25%;          /* Deep warm gray - excellent readability */
+    /* Mono blue palette */
+    --background: 216 33% 97%;         /* #F5F7FA - cool paper */
+    --foreground: 215 51% 11%;         /* #0E1A2B - ink, used for headings and body */
 
-    /* Primary - deep terracotta for bold headers and key actions */
-    --primary: 15 55% 45%;             /* Rich terracotta - warm, confident, distinctive */
-    --primary-foreground: 30 25% 98%;  /* Cream text on primary */
+    --primary: 224 65% 48%;            /* #2B54C9 - blue, interactive and emphasis */
+    --primary-foreground: 0 0% 100%;
 
-    /* Secondary/muted elements - lighter terracotta tints */
-    --secondary: 20 30% 92%;           /* Warm blush for subtle backgrounds */
-    --secondary-foreground: 20 15% 25%; /* Maintains contrast */
+    --secondary: 215 35% 93%;          /* #E8EDF4 - surface for cards and controls */
+    --secondary-foreground: 215 51% 11%;
 
-    --muted: 25 20% 94%;               /* Very light terracotta tint for cards/sections */
-    --muted-foreground: 20 12% 45%;    /* Medium warm gray for secondary text */
+    --muted: 213 36% 95%;              /* #EEF2F7 - quiet background bands */
+    --muted-foreground: 215 17% 41%;   /* #56657A - secondary text */
 
-    /* Accent color - deeper burnt terracotta for emphasis */
-    --accent: 12 65% 40%;              /* Deep burnt terracotta - for special highlights */
-    --accent-foreground: 30 25% 98%;   /* Cream on accent */
+    --accent: 224 66% 38%;             /* #2142A1 - deeper blue for links and small text */
+    --accent-foreground: 0 0% 100%;
 
     /* Case study accent - dusty purple for OrchidB (default) */
     --case-accent: 293 16% 43%;        /* #7A5C7D - dusty purple light mode */
@@ -39,30 +36,26 @@
     --case-secondary-m360: 213 56% 64%;       /* #6F9ED6 - blue secondary light mode */
     --case-highlight-m360: 194 79% 93%;       /* #DEF4FB - blue highlight light mode */
 
-    /* Borders and dividers - warm neutral with terracotta hint */
-    --border: 25 15% 88%;              /* Soft warm border */
-    --ring: 15 55% 45%;                /* Focus ring uses primary terracotta */
+    --border: 215 29% 87%;             /* #D5DDE8 */
+    --ring: 224 65% 48%;
   }
 
   .dark {
-    /* Dark mode - warm terracotta palette adapted for dark backgrounds */
-    --background: 20 15% 8%;            /* Deep warm charcoal with terracotta hint */
-    --foreground: 30 20% 92%;           /* Warm cream for text - excellent readability */
+    /* Mono blue palette, dark */
+    --background: 219 44% 8%;          /* #0B111C */
+    --foreground: 216 41% 93%;         /* #E5EBF4 */
 
-    /* Primary - lighter terracotta for visibility on dark */
-    --primary: 15 70% 60%;              /* Bright terracotta - pops on dark background */
-    --primary-foreground: 20 15% 8%;   /* Dark background for text on primary */
+    --primary: 222 80% 74%;            /* #86A6F2 */
+    --primary-foreground: 219 44% 8%;
 
-    /* Secondary/muted elements */
-    --secondary: 20 20% 14%;            /* Warm dark gray for cards */
-    --secondary-foreground: 30 20% 92%; /* Maintains contrast */
+    --secondary: 219 37% 12%;          /* #141C2B */
+    --secondary-foreground: 216 41% 93%;
 
-    --muted: 20 15% 12%;                /* Subtle warm dark for backgrounds */
-    --muted-foreground: 25 15% 65%;     /* Warm gray for secondary text */
+    --muted: 219 40% 10%;              /* #0F1626 */
+    --muted-foreground: 216 20% 63%;   /* #8F9DB3 */
 
-    /* Accent - vibrant burnt terracotta for dark mode */
-    --accent: 12 75% 55%;               /* Bright burnt terracotta - emphasis on dark */
-    --accent-foreground: 30 20% 92%;    /* Cream text on accent */
+    --accent: 222 82% 82%;             /* #A9C0F5 */
+    --accent-foreground: 219 44% 8%;
 
     /* Case study accent - dusty purple for OrchidB dark mode (default) */
     --case-accent: 293 12% 77%;         /* #C6B8CC - dusty purple dark mode */
@@ -80,9 +73,8 @@
     --case-secondary-m360: 210 57% 73%;       /* #91B9E1 - blue secondary dark mode */
     --case-highlight-m360: 207 69% 87%;       /* #C8E1F5 - blue highlight dark mode */
 
-    /* Borders and dividers */
-    --border: 20 15% 22%;               /* Warm subtle border */
-    --ring: 15 70% 60%;                 /* Focus ring uses bright primary terracotta */
+    --border: 219 33% 21%;              /* #243047 */
+    --ring: 222 80% 74%;
   }
 
   * {
@@ -99,12 +91,32 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  /* Underline that draws in from the left on hover/focus */
+  .link-draw {
+    @apply relative no-underline;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .link-draw:hover,
+  .link-draw:focus-visible {
+    background-size: 100% 1px;
+  }
 }
 
 /* Smooth scrolling */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-draw {
+    transition: none;
   }
 }
 

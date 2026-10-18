@@ -8,16 +8,16 @@ export function Quote({
   role?: string;
 }) {
   return (
-    <blockquote className="my-6 border-l-4 border-primary pl-6 italic">
-      <p className="text-lg">{children}</p>
+    <figure className="not-prose my-10 max-w-3xl border-l border-border pl-6">
+      <blockquote className="font-serif text-2xl leading-snug text-foreground sm:text-[1.75rem]">
+        {children}
+      </blockquote>
       {author && (
-        <footer className="mt-2 text-sm text-muted-foreground">
-          <cite className="not-italic">
-            {author}
-            {role && `, ${role}`}
-          </cite>
-        </footer>
+        <figcaption className="mt-3 font-mono text-xs uppercase tracking-wider text-muted-foreground">
+          {author}
+          {role && ` · ${role}`}
+        </figcaption>
       )}
-    </blockquote>
+    </figure>
   );
 }

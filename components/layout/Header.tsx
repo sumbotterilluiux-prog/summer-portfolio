@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { useTheme } from "./ThemeProvider";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 const navigation = [
   { name: "Work", href: "/work" },
@@ -15,23 +16,56 @@ const navigation = [
 export function Header() {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const reduceMotion = useReducedMotion();
+  const [hovered, setHovered] = useState<string | null>(null);
+
+  const activeName = navigation.find(
+    (item) => !item.external && (pathname === item.href || pathname?.startsWith(item.href + "/"))
+  )?.name;
+  // The pill sits under the hovered link, and falls back to the current page
+  const pillTarget = hovered ?? activeName;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur-md supports-[backdrop-filter]:bg-background/70">
       <nav
-        className="mx-auto flex max-w-content-xl items-center justify-between px-6 py-4 lg:px-8"
+        className="mx-auto flex max-w-content-xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center gap-2.5">
-            <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
+        <div className="flex shrink-0 lg:flex-1">
+          <Link href="/" className="group -m-1.5 flex items-center gap-2.5 p-1.5" aria-label="Summer Botterill, home">
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-foreground font-mono text-xs font-medium text-background transition-[transform,border-radius] duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:-rotate-[8deg] group-hover:scale-105 group-hover:rounded-full motion-reduce:transition-none">
               SB
             </span>
           </Link>
         </div>
-        <div className="flex gap-x-8">
+        <div
+          className="relative flex gap-0.5 rounded-full border border-border bg-secondary p-1"
+          onMouseLeave={() => setHovered(null)}
+          onBlur={(e) => {
+            if (!e.currentTarget.contains(e.relatedTarget as Node)) setHovered(null);
+          }}
+        >
           {navigation.map((item) => {
-            const isActive = pathname === item.href || pathname?.startsWith(item.href + "/");
+            const isActive = item.name === activeName;
+            const isLit = item.name === pillTarget;
+            const className = `relative whitespace-nowrap rounded-full px-2.5 py-1.5 text-[13px] font-medium transition-colors sm:px-4 sm:text-sm ${
+              isLit ? "text-foreground" : "text-muted-foreground"
+            }`;
+            const pill = isLit && (
+              <motion.span
+                layoutId="nav-pill"
+                className="absolute inset-0 -z-10 rounded-full bg-background shadow-[0_0_0_1px_hsl(var(--border))]"
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { type: "spring", stiffness: 420, damping: 32 }
+                }
+              />
+            );
+            const handlers = {
+              onMouseEnter: () => setHovered(item.name),
+              onFocus: () => setHovered(item.name),
+            };
 
             if (item.external) {
               return (
@@ -40,9 +74,18 @@ export function Header() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative text-sm font-medium text-foreground/60 transition-colors hover:text-foreground/80"
+                  className={`group isolate ${className}`}
+                  {...handlers}
                 >
-                  {item.name}
+                  {pill}
+                  {item.name}{" "}
+                  <span
+                    aria-hidden="true"
+                    className="inline-block transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transition-none"
+                  >
+                    ↗
+                  </span>
+                  <span className="sr-only">(opens in a new tab)</span>
                 </a>
               );
             }
@@ -51,30 +94,20 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`relative text-sm font-medium transition-colors hover:text-foreground/80 ${
-                  isActive ? "text-foreground" : "text-foreground/60"
-                }`}
+                className={`isolate ${className}`}
+                aria-current={isActive ? "page" : undefined}
+                {...handlers}
               >
+                {pill}
                 {item.name}
-                {isActive && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute -bottom-[17px] left-0 right-0 h-0.5 bg-primary"
-                    transition={{
-                      type: "spring",
-                      stiffness: 380,
-                      damping: 30,
-                    }}
-                  />
-                )}
               </Link>
             );
           })}
         </div>
-        <div className="flex flex-1 justify-end">
+        <div className="flex shrink-0 justify-end lg:flex-1">
           <button
             onClick={toggleTheme}
-            className="rounded-md p-2 hover:bg-secondary"
+            className="group rounded-full border border-border p-2 transition-colors hover:bg-secondary"
             aria-label="Toggle theme"
           >
             {theme === "light" ? (
@@ -84,7 +117,7 @@ export function Header() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-5 w-5"
+                className="h-4 w-4 transition-transform duration-500 group-hover:rotate-12 motion-reduce:transition-none"
               >
                 <path
                   strokeLinecap="round"
@@ -99,7 +132,7 @@ export function Header() {
                 viewBox="0 0 24 24"
                 strokeWidth={1.5}
                 stroke="currentColor"
-                className="h-5 w-5"
+                className="h-4 w-4 transition-transform duration-500 group-hover:rotate-12 motion-reduce:transition-none"
               >
                 <path
                   strokeLinecap="round"

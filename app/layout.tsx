@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { Header } from "@/components/layout/Header";
@@ -8,16 +7,24 @@ import { Footer } from "@/components/layout/Footer";
 import { Analytics } from "@/lib/analytics";
 import { getPersonJsonLd, getPortfolioJsonLd } from "@/lib/json-ld";
 
-const satoshi = localFont({
-  src: "../public/fonts/Satoshi-Variable.woff2",
-  variable: "--font-satoshi",
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
   display: "swap",
-  fallback: ["system-ui", "sans-serif"],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
+  variable: "--font-geist-mono",
+  display: "swap",
+});
+
+// Used sparingly, in italic, to emphasize a phrase within a heading
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-instrument-serif",
   display: "swap",
 });
 
@@ -35,7 +42,7 @@ export const metadata: Metadata = {
     "UI Designer",
     "Design Systems",
     "Enterprise UX",
-    "Toronto",
+    "Maryland",
     "Anheuser-Busch",
     "B2B Design",
   ],
@@ -89,7 +96,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${jetbrainsMono.variable}`}
+      className={`${geist.variable} ${geistMono.variable} ${instrumentSerif.variable}`}
       suppressHydrationWarning
     >
       <head>

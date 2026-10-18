@@ -49,7 +49,7 @@ export function MobileGifShowcase({ items }: MobileGifShowcaseProps) {
 
             {/* Title and Description */}
             <div className="mt-4 text-center">
-              <h4 className="text-base font-semibold text-foreground">
+              <h4 className="text-base font-medium text-foreground">
                 {item.title}
               </h4>
               <p className="mt-1 text-sm text-muted-foreground">

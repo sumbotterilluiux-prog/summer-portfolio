@@ -57,14 +57,14 @@ export function OutcomeCard({
     : "hsl(var(--case-accent))";
 
   return (
-    <div className="flex flex-col rounded-lg border border-border bg-secondary/50 px-6 pt-6 pb-4 transition-colors hover:bg-secondary/70">
+    <div className="flex flex-col rounded-2xl border border-border bg-secondary p-6">
       <span
-        className="text-4xl font-bold lg:text-5xl"
+        className="text-4xl font-medium tracking-[-0.03em] lg:text-5xl"
         style={{ color: accentColor }}
       >
         {metric}
       </span>
-      <h4 className="mt-2 mb-2 text-lg font-semibold text-foreground">{title}</h4>
+      <h4 className="mb-2 mt-3 text-lg font-medium text-foreground">{title}</h4>
       <p className="text-sm leading-relaxed text-muted-foreground">
         {description}
       </p>

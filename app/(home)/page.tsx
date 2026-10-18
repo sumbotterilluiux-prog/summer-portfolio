@@ -75,7 +75,6 @@ export default async function Home() {
                 impact={caseStudy.impact}
                 role={caseStudy.role}
                 timeframe={caseStudy.timeframe}
-                tags={caseStudy.tags}
                 excerpt={caseStudy.excerpt}
                 thumbnail={caseStudy.thumbnail}
                 thumbnailDark={caseStudy.thumbnailDark}

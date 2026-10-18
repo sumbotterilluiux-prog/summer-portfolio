@@ -40,7 +40,6 @@ Edit MDX files in `content/case-studies/`:
 # Open in your editor
 code content/case-studies/m360-user-research.mdx
 code content/case-studies/m360-image-capture.mdx
-code content/case-studies/design-system-adoption.mdx
 ```
 
 Replace placeholder content with your actual projects.

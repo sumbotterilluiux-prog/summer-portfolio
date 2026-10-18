@@ -12,9 +12,8 @@ export function getPersonJsonLd() {
     ],
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Toronto",
-      addressRegion: "ON",
-      addressCountry: "CA",
+      addressRegion: "MD",
+      addressCountry: "US",
     },
     knowsAbout: [
       "Product Design",

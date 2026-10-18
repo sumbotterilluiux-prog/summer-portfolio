@@ -104,13 +104,13 @@ export function BeforeAfterSlider({
 
           {/* Labels */}
           <span
-            className="absolute left-4 top-4 z-20 rounded-full bg-muted px-3 py-1 text-xs font-semibold text-muted-foreground transition-opacity duration-200"
+            className="absolute left-4 top-4 z-20 rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground transition-opacity duration-200"
             style={{ opacity: sliderPosition > 10 ? 1 : 0 }}
           >
             {beforeLabel}
           </span>
           <span
-            className="absolute right-4 top-4 z-20 rounded-full bg-case-accent px-3 py-1 text-xs font-semibold text-case-accent-foreground transition-opacity duration-200"
+            className="absolute right-4 top-4 z-20 rounded-full bg-case-accent px-3 py-1 text-xs font-medium text-case-accent-foreground transition-opacity duration-200"
             style={{ opacity: sliderPosition < 90 ? 1 : 0 }}
           >
             {afterLabel}

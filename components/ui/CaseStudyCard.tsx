@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { CursorChip } from "@/components/ui/CursorChip";
+import { CaseStudyThumbnail } from "@/components/ui/CaseStudyThumbnail";
 
 export interface CaseStudyCardProps {
   title: string;
@@ -11,7 +9,6 @@ export interface CaseStudyCardProps {
   impact: string;
   role: string;
   timeframe: string;
-  tags: string[];
   excerpt?: string;
   thumbnail?: string;
   thumbnailDark?: string;
@@ -20,79 +17,50 @@ export interface CaseStudyCardProps {
 export function CaseStudyCard({
   title,
   slug,
+  domain,
   impact,
   role,
   timeframe,
-  tags,
   excerpt,
   thumbnail,
   thumbnailDark,
 }: CaseStudyCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="h-full"
-    >
-      <Link
-        href={`/work/${slug}`}
-        className="group flex h-full flex-col overflow-hidden rounded-lg border border-border bg-background transition-all hover:border-primary hover:shadow-lg"
-      >
-        {thumbnail && (
-          <div className="relative aspect-video w-full overflow-hidden">
-            <Image
-              src={thumbnail}
-              alt={title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={90}
-              className={`object-cover transition-transform group-hover:scale-105 ${thumbnailDark ? "dark:hidden" : ""}`}
-            />
-            {thumbnailDark && (
-              <Image
-                src={thumbnailDark}
-                alt={title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={90}
-                className="object-cover transition-transform group-hover:scale-105 hidden dark:block"
-              />
-            )}
-          </div>
-        )}
-        <div className="flex flex-1 flex-col gap-4 p-6">
-          <div>
-            <h3 className="text-xl font-semibold tracking-tight group-hover:text-primary">
-              {title}
-            </h3>
+    <Link href={`/work/${slug}`} className="group block rounded-2xl">
+      <CursorChip label="View case study">
+        <CaseStudyThumbnail
+          title={title}
+          thumbnail={thumbnail}
+          thumbnailDark={thumbnailDark}
+          sizes="(max-width: 1024px) 100vw, 50vw"
+        />
+      </CursorChip>
 
-            {excerpt && (
-              <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{excerpt}</p>
-            )}
-          </div>
-
-          <div className="flex items-center gap-4 border-t border-border pt-4 text-sm">
-            <div>
-              <span className="text-muted-foreground">Impact:</span>{" "}
-              <span className="font-medium">{impact}</span>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <div>
-              <span className="font-medium">Role:</span> {role}
-            </div>
-            <div>
-              <span className="font-medium">Timeline:</span> {timeframe}
-            </div>
-          </div>
-
-          {/* Spacer to push remaining space to bottom */}
-          <div className="mt-auto" />
+      <div className="mt-5 flex flex-col gap-2">
+        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+          <h3 className="text-xl font-medium tracking-tight transition-colors group-hover:text-primary">
+            {title}
+          </h3>
+          <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            {timeframe}
+          </span>
         </div>
-      </Link>
-    </motion.div>
+
+        <p className="text-sm text-muted-foreground">
+          {role} · {domain}
+        </p>
+
+        {excerpt && (
+          <p className="line-clamp-2 text-[15px] leading-relaxed text-foreground/80">{excerpt}</p>
+        )}
+
+        <p className="mt-1 text-sm">
+          <span className="font-mono text-xs uppercase tracking-wider text-muted-foreground">
+            Impact
+          </span>{" "}
+          <span className="font-medium">{impact}</span>
+        </p>
+      </div>
+    </Link>
   );
 }

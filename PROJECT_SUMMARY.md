@@ -22,11 +22,10 @@ A production-ready, recruiter-friendly portfolio website for Summer Botterill, a
 5. **About (/about)** - Bio, experience, skills, values
 6. **Contact (/contact)** - Contact information and form
 
-### Case Studies (3 MDX files)
+### Case Studies (2 MDX files)
 
 1. **M360 Sales Capability User Research** - B2B CRM research identifying 80% feature underutilization
 2. **M360 Image Capture & IRIS Integration** - Feature launch with +20 NPS improvement
-3. **Scaling Design Quality Across 10+ Products** - Design Guild and system adoption
 
 Each case study includes:
 - Structured sections (Summary, Role, Outcomes, Process, Design Decisions, Collaboration, Learnings)
@@ -125,8 +124,7 @@ summer-portfolio/
 ├── content/                      # MDX content
 │   └── case-studies/            # Case study MDX files
 │       ├── m360-user-research.mdx
-│       ├── m360-image-capture.mdx
-│       └── design-system-adoption.mdx
+│       └── m360-image-capture.mdx
 ├── lib/                         # Utilities
 │   ├── mdx.ts                  # MDX parsing & data layer
 │   ├── json-ld.ts              # Structured data
@@ -164,7 +162,7 @@ summer-portfolio/
 ### 1. Update Personal Information
 
 Replace placeholder content in:
-- [ ] Email address (`summer.botterill@example.com`)
+- [x] Email address (`sumbotterilluiux@gmail.com`)
 - [ ] LinkedIn URL
 - [ ] Domain name (`summerbotterill.com`)
 - [ ] Bio and experience details

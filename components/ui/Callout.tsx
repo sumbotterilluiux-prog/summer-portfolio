@@ -6,20 +6,20 @@ export function Callout({
   type?: "info" | "warning" | "success";
 }) {
   const styles = {
-    info: "border-blue-200 bg-blue-50 dark:border-blue-900 dark:bg-blue-950",
+    info: "border-primary/20 bg-primary/[0.06]",
     warning:
-      "border-amber-200 bg-amber-50 dark:border-amber-900 dark:bg-amber-950",
+      "border-amber-300/60 bg-amber-50 dark:border-amber-800/60 dark:bg-amber-950/40",
     success:
-      "border-green-200 bg-green-50 dark:border-green-900 dark:bg-green-950",
+      "border-emerald-300/60 bg-emerald-50 dark:border-emerald-800/60 dark:bg-emerald-950/40",
   };
 
   return (
     <div
-      className={`my-6 rounded-lg border p-4 ${styles[type]}`}
+      className={`my-8 max-w-3xl rounded-2xl border px-5 py-4 ${styles[type]}`}
       role="note"
       aria-label={`${type} callout`}
     >
-      <div className="text-sm">{children}</div>
+      <div className="text-[15px] leading-relaxed [&_p]:my-0">{children}</div>
     </div>
   );
 }

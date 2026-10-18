@@ -5,7 +5,7 @@ This checklist will help you customize and populate the portfolio with your actu
 ## Before You Begin
 
 - [ ] Update the domain name throughout the codebase (currently set to `summerbotterill.com`)
-- [ ] Replace placeholder email address `summer.botterill@example.com` with your real email
+- [x] Replace placeholder email address (sumbotterilluiux@gmail.com)
 - [ ] Update LinkedIn URL in Footer and Contact page
 - [ ] Add your resume PDF to `public/resume.pdf`
 
@@ -175,7 +175,7 @@ If you want to add more case studies:
 
 - [ ] Update email address (multiple places)
 - [ ] Verify LinkedIn URL
-- [ ] Update location if not Toronto
+- [x] Update location (Maryland, USA)
 - [ ] Adjust "About Confidential Work" message if needed
 
 ## Confidentiality & Sanitization

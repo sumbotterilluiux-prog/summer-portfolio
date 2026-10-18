@@ -23,7 +23,7 @@ const footerLinks = {
     },
     {
       name: "Email",
-      href: "mailto:summer.botterill@example.com",
+      href: "mailto:sumbotterilluiux@gmail.com",
       icon: (
         <svg
           className="h-5 w-5"

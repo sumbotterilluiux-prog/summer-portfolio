@@ -43,8 +43,9 @@ const config: Config = {
         ring: "hsl(var(--ring))",
       },
       fontFamily: {
-        sans: ["var(--font-satoshi)", "system-ui", "sans-serif"],
-        mono: ["var(--font-jetbrains-mono)", "monospace"],
+        sans: ["var(--font-geist)", "system-ui", "sans-serif"],
+        serif: ["var(--font-instrument-serif)", "Georgia", "serif"],
+        mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       typography: {
         DEFAULT: {
@@ -55,30 +56,34 @@ const config: Config = {
             a: {
               color: "hsl(var(--accent))",
               textDecoration: "underline",
+              textUnderlineOffset: "3px",
               fontWeight: "500",
               "&:hover": {
                 color: "hsl(var(--primary))",
               },
             },
             h1: {
-              color: "hsl(var(--primary))",
-              fontWeight: "700",
+              color: "hsl(var(--foreground))",
+              fontWeight: "500",
+              letterSpacing: "-0.03em",
             },
             h2: {
-              color: "hsl(var(--primary))",
-              fontWeight: "700",
+              color: "hsl(var(--foreground))",
+              fontWeight: "500",
+              letterSpacing: "-0.02em",
               marginTop: "2.5em",
               marginBottom: "1em",
             },
             h3: {
-              color: "hsl(var(--accent))",
-              fontWeight: "600",
+              color: "hsl(var(--foreground))",
+              fontWeight: "500",
+              letterSpacing: "-0.015em",
               marginTop: "2em",
               marginBottom: "0.75em",
             },
             h4: {
-              color: "hsl(var(--accent))",
-              fontWeight: "600",
+              color: "hsl(var(--foreground))",
+              fontWeight: "500",
             },
             strong: {
               color: "hsl(var(--foreground))",
@@ -88,10 +93,17 @@ const config: Config = {
               color: "hsl(var(--accent))",
             },
             blockquote: {
-              color: "hsl(var(--muted-foreground))",
-              borderLeftColor: "hsl(var(--accent))",
-              borderLeftWidth: "3px",
+              color: "hsl(var(--foreground))",
+              fontFamily: "var(--font-instrument-serif), Georgia, serif",
+              fontSize: "1.5em",
+              fontWeight: "400",
+              lineHeight: "1.3",
+              borderLeftColor: "hsl(var(--border))",
+              borderLeftWidth: "1px",
+              paddingLeft: "1.5rem",
             },
+            "blockquote p:first-of-type::before": { content: "none" },
+            "blockquote p:last-of-type::after": { content: "none" },
             ol: {
               marginTop: "1.5em",
               marginBottom: "1.5em",
